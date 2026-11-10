@@ -4,6 +4,14 @@
   gap: 16px;
 }
 
+.work[data-featured] {
+  grid-column: 1 / -1;
+}
+
+.work[data-featured] .work-desc {
+  max-width: 44em;
+}
+
 .work {
   display: flex;
   flex-direction: column;

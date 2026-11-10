@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { profile, ui } from '../content/profile'
+import { profile } from '../content/profile'
 import './Works.css'
 
 export function Works() {
@@ -9,6 +9,7 @@ export function Works() {
         <article
           className="work"
           data-reveal
+          data-featured={'featured' in work ? '' : undefined}
           key={work.title}
           style={{ '--d': `${Math.min(index, 3) * 0.06}s` } as CSSProperties}
         >
@@ -26,9 +27,9 @@ export function Works() {
             href={work.href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={ui.works.linkLabel(work.title)}
+            aria-label={work.linkLabel}
           >
-            {ui.works.link}
+            {work.link}
             <span className="arrow" aria-hidden="true">
               ↗
             </span>

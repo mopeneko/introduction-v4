@@ -15,13 +15,16 @@ export type Skill =
       detail: string
       tools: readonly string[]
     }
-  | { name: string; level: 'personal'; href?: string }
+  | { name: string; level: 'personal' }
 
 export type Work = {
   title: string
   summary: string
   stack: readonly string[]
   href: string
+  link: string
+  linkLabel: string
+  featured?: true
 }
 
 export type Profile = {
@@ -79,22 +82,30 @@ export const profile = {
         'Cloud Build',
       ],
     },
-    {
-      name: 'Vencode',
-      level: 'personal',
-      href: 'https://play.google.com/store/apps/details?id=cc.lem0n.videoconverter',
-    },
+    { name: 'Vencode', level: 'personal' },
     { name: 'Flutter', level: 'personal' },
     { name: 'Cloudflare', level: 'personal' },
     { name: 'Python', level: 'personal' },
   ],
   works: [
     {
+      title: 'Vencode',
+      summary:
+        '動画の解像度、FPS、コーデックを端末内で変換する Android アプリ。ハードウェアアクセラレーションを使い、動画を外部へ送らずに処理する。Google Play で公開中。',
+      stack: ['Android'],
+      href: 'https://play.google.com/store/apps/details?id=cc.lem0n.videoconverter',
+      link: 'Google Play で見る',
+      linkLabel: 'Vencode を Google Play で見る',
+      featured: true,
+    },
+    {
       title: 'AndroidRichPresence',
       summary:
         'YouTube で見ている動画を Discord のアクティビティとして共有する Android アプリ。',
       stack: ['Kotlin'],
       href: 'https://github.com/mopeneko/AndroidRichPresence',
+      link: 'リポジトリを見る',
+      linkLabel: 'AndroidRichPresence のリポジトリを見る',
     },
     {
       title: 'x-pleroma-crossposter',
@@ -102,6 +113,8 @@ export const profile = {
         'X の投稿を Pleroma へ自動でクロスポストする Go アプリ。Webhook 受信と SQLite の再試行キューを持つ。',
       stack: ['Go', 'SQLite'],
       href: 'https://github.com/mopeneko/x-pleroma-crossposter',
+      link: 'リポジトリを見る',
+      linkLabel: 'x-pleroma-crossposter のリポジトリを見る',
     },
     {
       title: 'herdr-worktree-hook-plugin',
@@ -109,6 +122,8 @@ export const profile = {
         'worktree を作った直後に任意のシェルコマンドを走らせる herdr プラグイン。',
       stack: ['TypeScript'],
       href: 'https://github.com/mopeneko/herdr-worktree-hook-plugin',
+      link: 'リポジトリを見る',
+      linkLabel: 'herdr-worktree-hook-plugin のリポジトリを見る',
     },
     {
       title: 'x-automate-research',
@@ -116,6 +131,8 @@ export const profile = {
         'X のリストを時間帯別に要約して Telegram に送るバッチ。cron で常時稼働する。',
       stack: ['TypeScript'],
       href: 'https://github.com/mopeneko/x-automate-research',
+      link: 'リポジトリを見る',
+      linkLabel: 'x-automate-research のリポジトリを見る',
     },
   ],
   links: [
@@ -159,11 +176,6 @@ export const ui = {
     detailColumn: '経験と内容',
     practical: '実務',
     personal: '個人開発',
-    storeLabel: (name: string) => `${name} を Google Play で見る`,
-  },
-  works: {
-    link: 'リポジトリを見る',
-    linkLabel: (title: string) => `${title} のリポジトリを見る`,
   },
   footer: { copyright: '© 2026 もぺ / mopeneko', toTop: 'ページ上部へ' },
 } as const
