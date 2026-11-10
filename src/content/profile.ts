@@ -45,7 +45,7 @@ export const profile = {
   handle: 'mopeneko',
   role: 'バックエンド寄りのフルスタック',
   tagline: '高速かつセキュアなAPIを作ります。GoとTypeScriptとGoogle Cloudが中心です。',
-  location: '愛知県',
+  location: '東京都',
   avatar: avatarUrl,
   about: [
     '普段は Go で API を書き、TypeScript でその手前の UI を作っています。設計では速さ、壊れにくさ、あとから読めることを優先します。',
