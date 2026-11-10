@@ -1,0 +1,86 @@
+.works {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.work {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+/* Merged with the reveal transition so the two shorthands don't clobber;
+   --d (reveal stagger) delays only opacity/transform, never the hover pair. */
+@media (prefers-reduced-motion: no-preference) {
+  .work[data-reveal] {
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
+      border-color 0.25s,
+      background 0.25s;
+    transition-delay: var(--d, 0s), var(--d, 0s), 0s, 0s;
+  }
+}
+
+.work:hover,
+.work:focus-within {
+  border-color: rgba(232, 197, 109, 0.5);
+  background: var(--surface-2);
+}
+
+.work h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.work p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+.work .work-desc {
+  flex: 1;
+}
+
+.work-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.work-link .arrow {
+  margin-left: auto;
+  color: var(--dim);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.work-link:hover {
+  color: var(--accent);
+}
+
+.work-link:hover .arrow {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 640px) {
+  .works {
+    grid-template-columns: 1fr;
+  }
+}

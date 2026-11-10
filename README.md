@@ -1,32 +1,21 @@
-# React + TypeScript + Vite
+# introduction-v4
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+もぺ (mopeneko) の自己紹介ページ。
 
-Currently, two official plugins are available:
+## 構成
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- `src/content/profile.ts` — 名前、肩書き、スキル、実績、連絡先。表示する文言はすべてここに置く。
+- `src/components/` — セクション単位のコンポーネントと、その CSS。
+- `src/hooks/useReveal.ts` — スクロール時の表示。`prefers-reduced-motion` では即時表示。
+- `src/hooks/useActiveSection.ts` — ヘッダーの現在位置の表示。
 
-## React Compiler
+文言を変えるときは `profile.ts` だけを編集する。コンポーネントに文面を書かない。
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 開発
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```sh
+bun install
+bun run dev
+bun run build
+bun run lint
 ```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.

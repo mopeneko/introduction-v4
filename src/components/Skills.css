@@ -1,0 +1,94 @@
+.skills-group {
+  margin: 32px 0 12px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--dim);
+}
+
+.skills-group:first-child {
+  margin-top: 0;
+}
+
+.spec {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.spec thead th {
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--border-strong);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--dim);
+}
+
+.spec tbody th {
+  width: 29%;
+  padding: 20px 24px 20px 0;
+  border-top: 1px solid var(--border);
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  vertical-align: top;
+}
+
+.spec tbody td {
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.spec-meta {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.spec-desc {
+  display: block;
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+.spec-tools {
+  margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .spec,
+  .spec tbody {
+    display: block;
+  }
+
+  .spec thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .spec tbody tr {
+    display: block;
+    padding: 18px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .spec tbody th,
+  .spec tbody td {
+    display: block;
+    width: auto;
+    padding: 0;
+    border-top: 0;
+  }
+
+  .spec tbody th {
+    margin-bottom: 6px;
+  }
+}
