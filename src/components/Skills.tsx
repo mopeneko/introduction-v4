@@ -37,11 +37,26 @@ export function Skills() {
       </table>
       <h3 className="skills-group">{ui.skills.personal}</h3>
       <ul className="tags">
-        {personal.map((skill) => (
-          <li className="tag" key={skill.name}>
-            {skill.name}
-          </li>
-        ))}
+        {personal.map((skill) =>
+          'href' in skill ? (
+            <li key={skill.name}>
+              <a
+                className="tag tag-link"
+                href={skill.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={ui.skills.storeLabel(skill.name)}
+              >
+                {skill.name}
+                <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+          ) : (
+            <li className="tag" key={skill.name}>
+              {skill.name}
+            </li>
+          ),
+        )}
       </ul>
     </div>
   )

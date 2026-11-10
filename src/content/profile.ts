@@ -15,7 +15,7 @@ export type Skill =
       detail: string
       tools: readonly string[]
     }
-  | { name: string; level: 'personal' }
+  | { name: string; level: 'personal'; href?: string }
 
 export type Work = {
   title: string
@@ -46,7 +46,8 @@ export const profile = {
   avatar: avatarUrl,
   about: [
     '普段は Go で API を書き、TypeScript でその手前の UI を作っています。設計では速さ、壊れにくさ、あとから読めることを優先します。',
-    '好きなものはアニメとゲームと Linux のインストールです。休日は Go の CLI ツールや Web フロントエンドを書いています。',
+    'セキュリティは、認証と認可を一箇所に集め、外部からの入力を境界で検証することを基本にしています。',
+    '好きなものはアニメとゲームです。休日は Go の CLI ツールや Web フロントエンドを書いています。',
   ],
   skills: [
     {
@@ -77,6 +78,11 @@ export const profile = {
         'Cloud Storage',
         'Cloud Build',
       ],
+    },
+    {
+      name: 'Vencode',
+      level: 'personal',
+      href: 'https://play.google.com/store/apps/details?id=cc.lem0n.videoconverter',
     },
     { name: 'Flutter', level: 'personal' },
     { name: 'Cloudflare', level: 'personal' },
@@ -153,6 +159,7 @@ export const ui = {
     detailColumn: '経験と内容',
     practical: '実務',
     personal: '個人開発',
+    storeLabel: (name: string) => `${name} を Google Play で見る`,
   },
   works: {
     link: 'リポジトリを見る',

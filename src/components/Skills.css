@@ -60,6 +60,30 @@
   margin-top: 8px;
 }
 
+.tag-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--body);
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tag-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tag-link span {
+  font-size: 10px;
+  color: var(--dim);
+  transition: color 0.2s;
+}
+
+.tag-link:hover span {
+  color: var(--accent);
+}
+
 @media (max-width: 640px) {
   .spec,
   .spec tbody {
